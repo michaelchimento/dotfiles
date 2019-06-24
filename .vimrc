@@ -41,6 +41,10 @@ filetype plugin indent on    " required
 
 let mapleader = " "
 syntax on
+set textwidth=80
+set encoding=utf-8
+set wildmode=longest,list,full
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:rainbow_active=1
 "save swap files to default location
 set directory=$HOME/.vim/swapfiles//
