@@ -40,17 +40,21 @@ filetype plugin indent on    " required
 "\__/\_,_/___/\__/\___/_/_/_/_//__/\_,_/\__/_/\___/_//_/
 
 let mapleader = " "
+let $BIB = "~/ownCloud/master_biblio.bib"
 syntax on
-set textwidth=80
+"limit textwidth
 set encoding=utf-8
+"enable autocomplete for search
 set wildmode=longest,list,full
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:rainbow_active=1
 "save swap files to default location
 set directory=$HOME/.vim/swapfiles//
 
-
-map <Leader>so :so $MYVIMRC<CR>
+"source vimrc quickly
+map <leader>s :so $MYVIMRC<CR>
+"open bibliography
+map <leader>b :vsp<space>$BIB<CR>
 autocmd BufWritePre * %s/\s\+$//e "removes trailing whitespace
 set splitbelow splitright "splits open at bottom and right"
 set number relativenumber "relative numbering for easy motions"
