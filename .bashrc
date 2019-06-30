@@ -133,6 +133,18 @@ unset __conda_setup
 
 stty -ixon
 
+#add bin folder to path so that shell scripts saved here can run from terminal
 PATH=$PATH:HOME/bin
 export PATH
+
+#set up config git alias for keeping dotfiles organized
 alias config='/usr/bin/git --git-dir=/home/michael/dotfiles/ --work-tree=/home/michael'
+export PATH="${PATH}:${HOME}/.local/bin/"
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+(cat ~/.cache/wal/sequences &)
+
+#run neofetch each time term is opened
+neofetch

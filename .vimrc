@@ -3,22 +3,19 @@
 "/ __/ _ \/ /  ' \/ -_) _ \/ __/ _ \  _| |/ / /  ' \/ __/ __/
 "\__/_//_/_/_/_/_/\__/_//_/\__/\___/ (_)___/_/_/_/_/_/  \__/
 "
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 "                    ____
 " _  ____ _____  ___/ / /__
 "| |/ / // / _ \/ _  / / -_)
 "|___/\_,_/_//_/\_,_/_/\__/
 "
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'morhetz/gruvbox'
+Plugin 'dylanaraps/wal.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-sensible'
@@ -40,6 +37,10 @@ filetype plugin indent on    " required
 "\__/\_,_/___/\__/\___/_/_/_/_//__/\_,_/\__/_/\___/_//_/
 
 let mapleader = " "
+"remap capslock within vim
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
 let $BIB = "~/ownCloud/master_biblio.bib"
 syntax on
 "limit textwidth
@@ -80,13 +81,8 @@ set tabstop=4
 set softtabstop=4
 set cursorline
 
-"gruvbox related items
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = "soft"
-let g:gruvbox_contrast_light= "soft"
-set background=dark
-
-let g:airline_theme='molokai'
+"color scheme related items, be it gruvbox or wal
+colorscheme wal
 
 "live latex preview"
 map <Leader>p :w <CR> :!latexmk -pdf % <CR><CR>
