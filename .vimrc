@@ -83,6 +83,8 @@ set cursorline
 
 "color scheme related items, be it gruvbox or wal
 colorscheme wal
+"ensures comments aren't an annoying dark color
+set background=light
 
 "live latex preview"
 map <Leader>p :w <CR> :!latexmk -pdf % <CR><CR>
